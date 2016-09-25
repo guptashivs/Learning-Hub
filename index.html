@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, 	initial-scale=1">
+		<title>Springboard</title>
+  		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+    
+	<style>
+		/* Navigation Bar style */
+		.navbar-inner{
+			background-color:#5690cf;
+			top: 0;
+			left: 0;
+			z-index: 9999;
+			width: 100%;
+			height: 72px;
+			position: fixed;
+		}
+		
+		.navbar-inner span{
+			color:white;
+			font-size:30px;
+			padding-left:10px;
+			vertical-align: middle;
+		}
+		
+		.logo{
+			height:4em;
+			padding-left:10px;
+		}
+		
+		.navLogo{
+			float: left;
+		}
+		 
+		.navMenu{
+			float: right;
+		}
+		
+		.navMenuItem{
+			display: inline-block;
+			color: white;
+			margin-top: 10px;
+			margin-right: 30px;
+			margin-left: 30px;
+			font-size: 14px;
+			text-align: center;
+			LETTER-SPACING: 2PX;
+			FONT-WEIGHT: 500;
+			OPACITY: 0.7;
+		}
+		 
+		.navMenuItem a{
+		 	color: white;
+		}
+		
+		.navMenuList{
+			float: right;
+		}	
+		 
+		a:hover .navMenuItem{
+			font-weight: 700;
+			opacity: 1;
+		}
+		 
+		/* Search Div, button and field style */
+		.searchContent{
+			width: 100%;
+			padding-top: 5px;
+			padding-bottom:42px;
+			background-color: #5690cf;
+			text-align:center;
+		}
+		.searchContent h1, .searchContent h3{
+			color:white;
+		
+		}
+		.searchContent h1{
+			font-weight: 700;
+			margin-top: 68px;
+			font-size: 52px;
+		}
+		.searchContent h3{
+			width: 650px;
+			margin: auto;
+			padding-top: 6px;
+			padding-bottom: 37px;
+			line-height: 1.4;
+			font-size: 18px;
+			opacity: 0.5;
+			font-weight: 500;
+		}
+		.search-input{
+			width:500px;
+			font-size:16px;
+			padding-left: 16px;
+			border:none;
+			padding-right 0;
+			border-radius: 4px 0 0 4px;
+		}
+		.search-input, .search-btn{
+			height:45px;
+			
+		}
+		.search-input{
+			vertical-align: middle;
+		}
+		.search-btn{
+			width:100px;
+			border:none;
+			border-radius: 0 4px 4px 0;
+			background-color: #ffe11b;
+			color:white;
+			padding:0;
+		}
+		.enroll-btn{
+			padding-left: 16px;
+			padding-rigth: 16px;
+			width: 150px;
+			border: none;
+			border-radius: 0 4px 4px 0;
+			background-color: #ffe11b;
+			color: white;
+			height: 40px;
+			font-size: 16px;
+		}
+		
+		/* Other styles */
+
+		.material-icons {
+			font-size: 28px;
+			padding-top: 7px;
+		}
+		 
+		 
+		.bodycontainer{
+			width:100%;
+			height:100%;
+			padding-top: 60px;
+		}
+		 
+		 
+		ul{
+			padding-left:2px;
+		}
+		 
+
+		li:not(:last-child) {
+		    margin-bottom: 10px;
+		}
+		 
+		.showResultData{
+			min-height: 200px;
+		}
+		
+		.resultDiv{
+			width: 1100px;
+			padding-top:10px;
+		}
+		
+		.resultCount{
+			padding-top:35px;			
+		}
+		 
+		/* Resuable styles */ 
+		.noDisplay{
+			display:none; 
+		}
+		
+		.leftAlign{
+			float: left;
+			display: inline-block;
+		}
+		
+		.marginSet{
+			 margin-left:15px;
+		}
+
+		#showtable{
+			border: 1px solid black;
+			padding: 10px;
+		}
+		ul{
+			list-style-type: none;	
+		}
+		 
+		 
+		/* other style: end*/
+		 
+		#countResult{
+			font-size: 16px;
+			color: #929292;
+			margin-left: 40px;
+		}
+
+		a:hover {
+		    color: white;
+		}
+		
+		.introDiv{
+		 	background-color: #5690cf;
+		 }	
+		
+		.container-fluid {
+			padding-right: 0; 
+			padding-left: 0;
+		}
+		.btnAlign{
+			font-size:0;
+			text-align:center;
+			
+		}
+		#myProgress {
+			position: relative;
+			width: 100%;
+			height: 5px;
+			background-color: #5690cf;
+		}
+		#myBar {
+			position: absolute;
+			width: 0;
+			height: 100%;
+			background-color: #ffe11b;
+		}
+		 
+		#footer {
+			position: relative;
+			height: 90px;
+			width:100%;
+			clear:both;
+			bottom:0;
+		}
+		
+		.list-group a{
+			display: inline-block;
+		}
+		
+		.connectDiv{
+			text-align: center;
+			width: 50%; height: 50%; top: 25%; margin: 0 auto; position: relative; 
+		}
+		.list-group-item{
+
+			border-radius: 4px;
+			padding: 4px 10px;
+		}
+		
+		.fa-linkedin{
+			color: #007ab9;
+		}
+		
+		.fa-github{
+			color:#000;
+		}
+		input[type="search"]:focus {   
+			border-color: #5690cf;
+			outline: 0 none;
+		}
+		.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+			outline: 0;
+			border-color: #ffe11b;
+		}
+		.navBarContent{
+			width:100%;
+			    margin-top: 5px;
+		}
+		
+		.showDetails{
+			margin-left: 40px;
+			border-top: 1px solid #e6e6e6; 
+			border-bottom: 1px solid #e6e6e6; 
+			padding-top: 20px;
+			padding-bottom: 12px;
+		}
+		
+		.showDetails h2{
+			margin-top:0;
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 6px;
+		}
+		
+		.showDetails p{
+			font-size: 14px;
+			color: #929292;
+			padding-top: 12px;
+		}
+		.styleTag{
+			background: #FFFFFF;
+			border: 1px solid #E43D3D;
+			border-radius: 8px;
+			font-size: 12px;
+			color: #E43D3D;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			padding: 2px 10px;
+		}
+		.numberStyle{
+			font-size: 20px;
+			font-weigth: 100;
+		}
+		.numberText{
+			font-size: 12px;
+			font-weight: bold;
+			color: #929292;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+		.marginNumberStyle{
+			margin-left: 36px;
+		}
+		.profileImg{
+			overflow: none;
+		}
+		.countVoteText{
+			padding-left: 5px;
+			font-weigth: 100;
+		}
+		.separater{
+			border-left: 2px solid #e6e6e6;
+			padding-left: 10px;
+		}
+	</style>
+</head>
+    <body>
+	    <div class="container-fluid" id="home">	
+	    	<div class= "navbar-inner">
+				<div id="myProgress">
+						  <div id="myBar"></div>
+						</div>
+				<div class="navBarContent row">		
+					<div class="navLogo col-md-2">
+						<img class="logo" src="http://i66.tinypic.com/2h38row.png" alt="SpringBoardLogo" title= "SpringBoard"/>
+					</div>
+					<div class="btnAlign col-md-6 navSearchBox noDisplay"><input type="search" class="search-input" placeholder="Search by Tags" id="searchTagHeader"/>
+						<button class="btn primary search-btn" onClick="getSearchResultsHeader()">
+						 <i class="material-icons 1d-48">search</i></button></div>
+					<div class="navMenu col-md-4">
+						<ul class="navMenuList">
+							<a href="javascript:window.location.reload();"><li class="navMenuItem">HOME</li></a>
+							<a href ="#contactDiv"><li class="navMenuItem">CONTACT</li></a>
+						</ul>
+					</div>
+				</div>
+	 		</div>
+	 		<div class="bodycontainer">
+	 			<div class="searchContent">
+					<h1>One stop hub for all the learning paths!</h1>
+					<h3>Learning Hub application is to help you list and browse learning paths conveniently.</h3>
+					<div class="btnAlign bodySearchBox"><input type="search" class="search-input" placeholder="Search by Tags" id="searchTagBody"/>
+						<button class="btn primary search-btn" onClick="getSearchResultsBody()">
+						 <i class="material-icons 1d-48">search</i></button></div>
+	 			</div>
+				<div class="resultCount marginSet"><span id="countResult"> </span></div>
+				<div id="show" class="showResultData">
+					<div class="resultDiv marginSet"><div class="resultTable"></div></div>
+				</div>
+			</div> 		
+		</div>	 
+		<div class="contactDiv" id="footer">
+			<div class= "connectDiv">
+				<div class="list-group">
+					<a href="https://in.linkedin.com/in/gshivani" target="_blank" class="list-group-item linkedin"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i> </a>
+				</div>
+			</div>
+		</div>		
+<script>
+
+function moveProgressBar() {
+    var elem = document.getElementById("myBar"); 
+    var width = 1;
+	var id = setInterval(frame, 10);
+    function frame() {
+        if (width >= 100) {
+			clearInterval(id);
+			$("#myBar").width(0);
+        } else {
+            width= width + 10; 
+            elem.style.width = width + '%'; 
+        }
+    }
+}
+
+//Base URL to fetch Data From Git Repo
+var BASE_URL = "https://hackerearth.0x10.info/api/learning-paths?type=json&query=list_paths";
+function getSearchResultsBody(){
+	//resetting the star range input
+	var searchParam = document.getElementById("searchTagBody").value ;	
+	$('.searchContent').addClass('noDisplay');
+	$('.navSearchBox').removeClass('noDisplay');
+	getDataFromAPI(searchParam);
+}
+function getSearchResultsHeader(){
+	var searchParam = document.getElementById("searchTagHeader").value ;
+	getDataFromAPI(searchParam);
+}
+function getDataFromAPI(searchParam){
+	moveProgressBar();
+	var xmlhttpSearch = new XMLHttpRequest();
+    var url = BASE_URL;
+    xmlhttpSearch.open('GET', url, true);
+    xmlhttpSearch.setRequestHeader("Accept", "application/json");
+    xmlhttpSearch.send();
+    xmlhttpSearch.onreadystatechange = function () {
+        if (xmlhttpSearch.readyState == 4) {
+            if (xmlhttpSearch.status == 200) {
+            	(xmlhttpSearch.responseText);
+                showData(xmlhttpSearch.responseText,searchParam);
+            }
+            else {
+                return ("Error ->" + xmlhttpSearch.responseText);
+            }
+        }
+    };	
+	
+}
+function showData(recordData, searchParam){
+	//$(".resultTable").empty();
+	var jsonData = JSON.parse(recordData);
+	$(".addLoader").addClass("noDisplay");
+	var total_count = jsonData.paths.length;
+	var count =0;
+	try{
+		if(total_count > 0){
+			for(var i=0; i<total_count; i++){
+					var strTags =jsonData.paths[i].tags;
+					var strTagArray = strTags.split(',');
+					for (j = 0; j < strTagArray.length; j++) { 
+					   if((strTagArray[j]) === searchParam){
+					   
+							var htmlTable ="<div class='showDetails row'><div class='leftAlign col-md-3'><img class='profileImg' src='"+ 
+							jsonData.paths[i].image+ "' /></div><div class='leftAlign col-md-7 alignTextDetails'><h2>"+ jsonData.paths[i].name + "</h2><span class='styleTag'>"+strTagArray[j] +
+							"</span><p>"+ jsonData.paths[i].description + "</p><div class='leftAlign'><span class='numberStyle'>"+ jsonData.paths[i].hours +
+							"</span><br><span class='numberText'>HOURS</span></div><div class='leftAlign marginNumberStyle'><span class='numberStyle'>" +jsonData.paths[i].learner +
+							"</span><br><span class='numberText'>LEARNERS</span></div>"+
+							"<div class='leftAlign marginNumberStyle'><a onclick='upvoteCount()'><img height='30px' width ='30px' src='http://i63.tinypic.com/2pobedv.jpg'/></a><span id='upCount' class= 'countVoteText numberStyle'>"+ localStorage.upclickcount +"</span></div>"+
+							"<div class='leftAlign marginNumberStyle separater'><a onclick= 'downvoteCount()'><img height='30px' width ='30px' class='downvoteButton' src='http://i67.tinypic.com/516kc3.jpg'/></a><span id='downCount' class= 'countVoteText numberStyle'>"+ localStorage.downclickcount +"<span></div></div><div col-md-2>"+
+							"<button class='btn primary enroll-btn' onclick = \"(window.open('" +jsonData.paths[i].sign_up + " '))\">Enroll Now</button></div><br>"+
+							"</div>";
+							count++;
+					   }
+					}
+			}
+			if(count == 0){
+				$('#countResult').text("No matching courses");
+			}
+			else{
+				$('#countResult').text(count + " matching course.");
+				$(".resultTable" ).append(htmlTable);
+			}
+		}
+	}
+	finally{
+	$('.searchContent').addClass('noDisplay');
+	}
+	
+}
+function upvoteCount(){
+	 if(typeof(Storage) !== "undefined") {
+        if (localStorage.upclickcount) {
+            localStorage.upclickcount = Number(localStorage.upclickcount)+1;
+        } else {
+            localStorage.upclickcount = 1;
+        }
+        document.getElementById("upCount").innerHTML =  localStorage.upclickcount;
+    } else {
+        alert("Sorry, your browser does not support web storage...");
+    }
+}
+function downvoteCount(){
+	 if(typeof(Storage) !== "undefined") {
+        if (localStorage.downclickcount) {
+            localStorage.downclickcount = Number(localStorage.downclickcount)+1;
+        } else {
+            localStorage.downclickcount = 1;
+        }
+        document.getElementById("downCount").innerHTML =  localStorage.downclickcount;
+    } else {
+        alert("Sorry, your browser does not support web storage...");
+    }
+}
+</script>
+	</body>
+</html>
